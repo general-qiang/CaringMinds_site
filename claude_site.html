@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>此心 CaringMinds — 让心理支持成为青年触手可及的公共资源</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F37752;
+    --orange-deep: #D85B3A;
+    --orange-soft: #FBE7DC;
+    --gold: #E8C896;
+    --gold-soft: #F5E8CF;
+    --cream: #FAF7F2;
+    --cream-dark: #F2EDE3;
+    --ink: #1F1F2C;
+    --ink-soft: #4A4A58;
+    --ink-faint: #8E8E96;
+    --line: #E8E2D5;
+    --max: 1280px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans SC', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .serif {
+    font-family: 'Noto Serif SC', 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .latin {
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+    font-style: italic;
+  }
+
+  /* ========== NAV ========== */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(250, 247, 242, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+  }
+
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+    position: relative;
+  }
+
+  .logo-mark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    border-radius: 50% 0 50% 0;
+    transform: rotate(-15deg);
+  }
+
+  .logo-mark::after {
+    content: '';
+    position: absolute;
+    inset: 6px 6px 6px 14px;
+    background: var(--orange);
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 2px;
+  }
+
+  .logo-zh {
+    font-size: 18px;
+    color: var(--orange);
+    letter-spacing: 0.05em;
+  }
+
+  .logo-en {
+    font-size: 11px;
+    color: var(--ink);
+    letter-spacing: 0.15em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a:hover {
+    color: var(--orange);
+  }
+
+  .nav-cta {
+    padding: 10px 22px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover {
+    background: var(--orange);
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    min-height: 100vh;
+    padding: 140px 40px 80px;
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-text .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--orange-deep);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--orange-deep);
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(40px, 5.5vw, 72px);
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 32px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 .accent {
+    color: var(--orange);
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero h1 .accent::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    height: 14px;
+    background: var(--gold-soft);
+    z-index: -1;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    max-width: 540px;
+    margin-bottom: 48px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    padding: 16px 32px;
+    background: var(--orange);
+    color: white;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-primary:hover {
+    background: var(--orange-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -8px rgba(243, 119, 82, 0.4);
+  }
+
+  .btn-secondary {
+    padding: 16px 32px;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .arrow {
+    transition: transform 0.3s;
+  }
+
+  .btn-primary:hover .arrow,
+  .btn-secondary:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  /* Hero visual - abstract organic composition */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1;
+    max-height: 540px;
+  }
+
+  .blob-1 {
+    position: absolute;
+    top: 5%;
+    right: -10%;
+    width: 70%;
+    aspect-ratio: 1;
+    background: var(--orange);
+    border-radius: 60% 40% 50% 50% / 50% 50% 40% 60%;
+    opacity: 0.92;
+    animation: float1 12s ease-in-out infinite;
+  }
+
+  .blob-2 {
+    position: absolute;
+    bottom: 5%;
+    left: -5%;
+    width: 50%;
+    aspect-ratio: 1;
+    background: var(--gold);
+    border-radius: 40% 60% 60% 40% / 50% 60% 40% 50%;
+    opacity: 0.85;
+    animation: float2 14s ease-in-out infinite;
+  }
+
+  .blob-3 {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 30%;
+    aspect-ratio: 1;
+    background: var(--orange-soft);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float3 10s ease-in-out infinite;
+  }
+
+  .quote-card {
+    position: absolute;
+    bottom: 8%;
+    right: 0;
+    background: white;
+    padding: 24px 28px;
+    border-radius: 16px;
+    max-width: 280px;
+    box-shadow: 0 24px 60px -20px rgba(31, 31, 44, 0.18);
+    font-family: 'Noto Serif SC', serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink);
+    z-index: 2;
+  }
+
+  .quote-card::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    position: absolute;
+    top: -8px;
+    left: 16px;
+    font-size: 64px;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .quote-attribution {
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--ink-faint);
+    font-family: 'Noto Sans SC', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  @keyframes float1 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-10px, -15px) rotate(5deg); }
+  }
+
+  @keyframes float2 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(15px, -10px) rotate(-8deg); }
+  }
+
+  @keyframes float3 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, 20px); }
+  }
+
+  /* ========== SECTION GENERAL ========== */
+  section {
+    padding: 120px 40px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--orange-deep);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-tag::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--orange-deep);
+  }
+
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .section-intro {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin-bottom: 64px;
+  }
+
+  /* ========== IMPACT NUMBERS ========== */
+  .impact-section {
+    background: var(--ink);
+    color: var(--cream);
+    max-width: 100%;
+    padding: 120px 40px;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .impact-section::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(243, 119, 82, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .impact-section::after {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(232, 200, 150, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .impact-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .impact-section .section-tag {
+    color: var(--gold);
+  }
+
+  .impact-section .section-tag::before {
+    background: var(--gold);
+  }
+
+  .impact-section .section-title {
+    color: var(--cream);
+    margin-bottom: 80px;
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .impact-card {
+    background: var(--ink);
+    padding: 56px 40px;
+    transition: background 0.4s;
+    position: relative;
+  }
+
+  .impact-card:hover {
+    background: #2A2A38;
+  }
+
+  .impact-number {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(56px, 6vw, 84px);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--orange);
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .impact-label {
+    font-size: 14px;
+    color: rgba(250, 247, 242, 0.7);
+    line-height: 1.6;
+  }
+
+  .impact-footer {
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    line-height: 1.7;
+    max-width: 800px;
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  .impact-footer .key {
+    color: var(--orange);
+  }
+
+  /* ========== ABOUT ========== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-stat {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(48px, 5vw, 64px);
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .about-stat-label {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+  }
+
+  .about-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 32px 0;
+  }
+
+  .about-text-block {
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+  }
+
+  .about-text-block strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* Three pillars */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 80px;
+  }
+
+  .pillar {
+    background: white;
+    padding: 40px 32px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .pillar:hover {
+    transform: translateY(-4px);
+    border-color: var(--orange);
+    box-shadow: 0 24px 48px -16px rgba(31, 31, 44, 0.08);
+  }
+
+  .pillar-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 56px;
+    color: var(--orange-soft);
+    line-height: 1;
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    font-weight: 500;
+  }
+
+  .pillar-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--orange-deep);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .pillar-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .pillar-title .key {
+    color: var(--orange);
+  }
+
+  .pillar-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+  }
+
+  /* ========== TIMELINE ========== */
+  .timeline-section {
+    background: var(--cream-dark);
+    max-width: 100%;
+    margin: 0;
+    padding: 120px 40px;
+  }
+
+  .timeline-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .timeline {
+    margin-top: 64px;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 80px;
+    top: 20px;
+    bottom: 20px;
+    width: 1px;
+    background: var(--line);
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 48px;
+    padding: 32px 0;
+    position: relative;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 76px;
+    top: 44px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--orange);
+    border: 2px solid var(--cream-dark);
+    z-index: 1;
+  }
+
+  .timeline-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--orange);
+    line-height: 1.2;
+    font-style: italic;
+  }
+
+  .timeline-content {
+    padding-left: 32px;
+    border-left: 1px solid transparent;
+  }
+
+  .timeline-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+
+  .timeline-content p strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .timeline-item.current .timeline-year {
+    color: var(--ink);
+  }
+
+  .timeline-item.current::before {
+    background: var(--gold);
+    width: 14px;
+    height: 14px;
+    left: 73px;
+    top: 41px;
+  }
+
+  .timeline-item.current .timeline-content {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ========== SERVICES ========== */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 64px;
+  }
+
+  .service-card {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    transition: all 0.4s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card:hover {
+    border-color: var(--orange);
+    box-shadow: 0 32px 64px -24px rgba(31, 31, 44, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .service-card.featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .service-visual {
+    background: linear-gradient(135deg, var(--orange-soft) 0%, var(--gold-soft) 100%);
+    min-height: 200px;
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .service-card.featured .service-visual {
+    min-height: auto;
+  }
+
+  .service-visual-shape {
+    position: absolute;
+    background: var(--orange);
+    opacity: 0.7;
+    border-radius: 50% 30% 50% 30% / 30% 50% 30% 50%;
+    width: 60%;
+    aspect-ratio: 1;
+    top: -10%;
+    right: -10%;
+  }
+
+  .service-visual-shape-2 {
+    position: absolute;
+    background: var(--gold);
+    border-radius: 50%;
+    width: 30%;
+    aspect-ratio: 1;
+    bottom: -20%;
+    left: -10%;
+    opacity: 0.6;
+  }
+
+  .service-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 64px;
+    color: white;
+    font-weight: 500;
+    line-height: 1;
+    z-index: 1;
+    position: relative;
+    text-shadow: 0 2px 12px rgba(216, 91, 58, 0.3);
+  }
+
+  .service-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .service-card.featured .service-content {
+    padding: 56px 48px;
+  }
+
+  .service-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--orange-deep);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .service-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .service-card.featured .service-title {
+    font-size: 36px;
+  }
+
+  .service-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--orange);
+    margin-bottom: 24px;
+  }
+
+  .service-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    flex: 1;
+  }
+
+  .service-meta {
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .meta-label {
+    font-family: 'Inter', sans-serif;
+    color: var(--orange-deep);
+    font-weight: 500;
+    flex-shrink: 0;
+    min-width: 80px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    padding-top: 2px;
+  }
+
+  /* PG principles */
+  .pg-principles {
+    margin-top: 80px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 4px;
+    padding: 64px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pg-principles::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(243, 119, 82, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .pg-principles-header {
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pg-principles-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .pg-principles-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .pg-principles-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--gold);
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .principle {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 24px;
+  }
+
+  .principle-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .principle-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .principle-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(250, 247, 242, 0.7);
+  }
+
+  /* ========== INITIATIVES ========== */
+  .initiatives-section {
+    background: var(--cream-dark);
+    max-width: 100%;
+    margin: 0;
+    padding: 120px 40px;
+  }
+
+  .initiatives-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .initiatives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+    margin-top: 64px;
+  }
+
+  .initiative {
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+    position: relative;
+  }
+
+  .initiative-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .initiative-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .initiative-desc {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+  }
+
+  /* ========== TEAM ========== */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 64px;
+    align-items: start;
+  }
+
+  .team-quote {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px;
+    line-height: 1.6;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 32px;
+    position: relative;
+    padding-left: 24px;
+    border-left: 2px solid var(--orange);
+  }
+
+  .team-quote .key {
+    color: var(--orange);
+  }
+
+  .team-text {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+  }
+
+  .disciplines-block {
+    background: white;
+    padding: 40px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+  }
+
+  .disciplines-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--orange-deep);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .discipline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .discipline-tag {
+    padding: 8px 18px;
+    background: var(--orange-soft);
+    color: var(--orange-deep);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .discipline-tag.gold {
+    background: var(--gold-soft);
+    color: #8B6914;
+  }
+
+  .universities-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--orange-deep);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+
+  .universities {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 16px;
+    line-height: 2;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .universities .dot {
+    color: var(--orange);
+    margin: 0 8px;
+  }
+
+  /* Supervision block */
+  .supervision-block {
+    margin-top: 80px;
+    background: white;
+    padding: 56px 48px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .supervision-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 32px;
+    color: var(--orange);
+    line-height: 1.3;
+    font-weight: 500;
+  }
+
+  .supervision-text {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+  }
+
+  /* ========== JOIN ========== */
+  .join-section {
+    background: var(--ink);
+    color: var(--cream);
+    max-width: 100%;
+    margin: 0;
+    padding: 140px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .join-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(ellipse at top right, rgba(243, 119, 82, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(232, 200, 150, 0.08) 0%, transparent 50%);
+  }
+
+  .join-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .join-section .section-tag {
+    color: var(--gold);
+  }
+  .join-section .section-tag::before {
+    background: var(--gold);
+  }
+
+  .join-section .section-title {
+    color: var(--cream);
+    margin-bottom: 24px;
+  }
+
+  .join-intro {
+    font-size: 18px;
+    color: rgba(250, 247, 242, 0.75);
+    line-height: 1.85;
+    max-width: 720px;
+    margin-bottom: 80px;
+  }
+
+  .join-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .join-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .join-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--orange);
+    transform: translateY(-4px);
+  }
+
+  .join-card.featured {
+    grid-column: 1 / -1;
+    background: rgba(243, 119, 82, 0.08);
+    border-color: rgba(243, 119, 82, 0.3);
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .join-card-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .join-card-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+
+  .join-card.featured .join-card-title {
+    font-size: 32px;
+  }
+
+  .join-card-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(250, 247, 242, 0.7);
+    margin-bottom: 24px;
+  }
+
+  .join-perks {
+    list-style: none;
+    margin-bottom: 28px;
+  }
+
+  .join-perks li {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(250, 247, 242, 0.75);
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .join-perks li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 1px;
+    background: var(--orange);
+  }
+
+  .flow-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+    align-items: center;
+  }
+
+  .flow-step {
+    font-size: 12px;
+    color: rgba(250, 247, 242, 0.85);
+    padding: 6px 14px;
+    background: rgba(243, 119, 82, 0.15);
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .flow-arrow {
+    color: var(--orange);
+    font-size: 12px;
+  }
+
+  .join-cta {
+    color: var(--orange);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s;
+  }
+
+  .join-cta:hover {
+    gap: 12px;
+  }
+
+  /* ========== CONTACT ========== */
+  .contact-section {
+    background: var(--cream);
+    padding: 140px 40px;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .contact-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-quote {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 800px;
+    margin: 0 auto 64px;
+  }
+
+  .contact-quote .key {
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  .contact-paths {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 880px;
+    margin: 0 auto 64px;
+  }
+
+  .contact-path {
+    background: white;
+    padding: 48px 40px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    text-align: left;
+    transition: all 0.3s;
+  }
+
+  .contact-path:hover {
+    border-color: var(--orange);
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -16px rgba(31, 31, 44, 0.08);
+  }
+
+  .contact-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--orange-soft);
+    border-radius: 50%;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+    font-size: 22px;
+  }
+
+  .contact-path-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .contact-path-desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .contact-info {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--orange);
+    font-weight: 500;
+    word-break: break-all;
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: var(--ink);
+    color: rgba(250, 247, 242, 0.7);
+    padding: 64px 40px 32px;
+  }
+
+  .footer-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .footer-brand .logo-zh {
+    color: var(--orange);
+  }
+
+  .footer-brand .logo-en {
+    color: var(--cream);
+  }
+
+  .footer-tagline {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(250, 247, 242, 0.6);
+    max-width: 280px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .footer-col ul {
+    list-style: none;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 12px;
+  }
+
+  .footer-col ul a {
+    color: rgba(250, 247, 242, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul a:hover {
+    color: var(--orange);
+  }
+
+  .footer-bottom {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(250, 247, 242, 0.5);
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; gap: 48px; }
+    .hero-visual { max-height: 400px; }
+    section { padding: 80px 24px; }
+    .impact-section, .timeline-section, .initiatives-section, .join-section, .contact-section { padding: 80px 24px; }
+    .impact-grid { grid-template-columns: 1fr 1fr; }
+    .pillars { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card.featured { grid-template-columns: 1fr; }
+    .principles-grid { grid-template-columns: 1fr 1fr; }
+    .initiatives-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; gap: 48px; }
+    .supervision-block { grid-template-columns: 1fr; gap: 24px; padding: 40px 32px; }
+    .join-grid { grid-template-columns: 1fr; }
+    .join-card.featured { grid-template-columns: 1fr; gap: 24px; }
+    .contact-paths { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .nav-links { display: none; }
+    .nav-inner { padding: 16px 24px; }
+    .timeline::before { left: 50px; }
+    .timeline-item { grid-template-columns: 50px 1fr; gap: 24px; }
+    .timeline-item::before { left: 46px; }
+    .timeline-item.current::before { left: 43px; }
+    .timeline-content { padding-left: 16px; }
+  }
+
+  /* Reveal animation on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============= NAV ============= -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark"></div>
+      <div class="logo-text">
+        <span class="logo-zh">此心</span>
+        <span class="logo-en">CARINGMINDS</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">关于此心</a></li>
+      <li><a href="#services">我们的服务</a></li>
+      <li><a href="#initiatives">实践与研究</a></li>
+      <li><a href="#team">团队</a></li>
+      <li><a href="#join">加入我们</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">联系我们</a>
+  </div>
+</nav>
+
+<!-- ============= HERO ============= -->
+<header class="hero">
+  <div class="hero-text reveal">
+    <div class="eyebrow">CaringMinds · 自2021</div>
+    <h1>
+      让心理支持，<br>
+      成为青年触手可及的<br>
+      <span class="accent">公共资源</span>
+    </h1>
+    <p class="hero-sub">
+      此心 CaringMinds 是一家面向中国青年的心理健康公益性社会企业，致力于建设可及、可靠、可持续的多层次心理支持体系，让心理照护成为每一位青年都能获得的公共资源。
+    </p>
+    <div class="hero-buttons">
+      <a href="#about" class="btn-primary">
+        了解我们的工作 <span class="arrow">→</span>
+      </a>
+      <a href="#contact" class="btn-secondary">
+        与我们合作 <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+    <div class="blob-3"></div>
+    <div class="quote-card">
+      这是我第一次觉得，我不用把事情讲得很严重，也有人愿意认真听我说。
+      <div class="quote-attribution">— 此心来访者反馈</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============= IMPACT ============= -->
+<section class="impact-section">
+  <div class="impact-inner">
+    <div class="reveal">
+      <div class="section-tag">Our Impact · 此心至今</div>
+      <h2 class="section-title">把每一份信任，<br>沉淀为可被检验的承诺。</h2>
+    </div>
+    <div class="impact-grid reveal">
+      <div class="impact-card">
+        <div class="impact-number">150<span style="color:var(--gold)">+</span></div>
+        <div class="impact-label">完成认证培训的<br>朋辈心理咨询师</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-number">1,300<span style="color:var(--gold)">+</span></div>
+        <div class="impact-label">累计陪伴服务次数</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-number">8</div>
+        <div class="impact-label">已合作院校</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-number">100<span style="color:var(--gold)">+</span></div>
+        <div class="impact-label">已回应树洞来信</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-number">10<span style="color:var(--gold)">+</span></div>
+        <div class="impact-label">心理健康讲座<br>与主题分享</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-number">4.6<span style="color:var(--gold);font-size:0.5em">/5</span></div>
+        <div class="impact-label">学生平均满意度</div>
+      </div>
+    </div>
+    <div class="impact-footer reveal">
+      我们以<span class="key">服务（Service）</span>、<span class="key">倡议（Advocacy）</span>、<span class="key">研究（Research）</span>为实践模式，让心理支持从稀缺资源走向可普遍获得的公共福祉。
+    </div>
+  </div>
+</section>
+
+<!-- ============= ABOUT ============= -->
+<section id="about">
+  <div class="reveal">
+    <div class="section-tag">关于此心 · About</div>
+    <h2 class="section-title">在被诊断之前，<br>许多人需要的，只是一个被听见的入口。</h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="about-stat">24.1%</div>
+      <div class="about-stat-label">18–24岁青年的抑郁风险检出率<br><span style="font-size:11px;color:var(--ink-faint);">数据来源：中国科学院</span></div>
+      <div class="about-divider"></div>
+      <div class="about-stat">5 / 4</div>
+      <div class="about-stat-label">每10万人中仅有约5名精神科医生<br>与4名心理健康从业者</div>
+    </div>
+    <div class="reveal">
+      <p class="about-text-block">
+        在中国，青年正在成为心理困扰的<strong>高风险群体</strong>。然而在病耻感、高昂费用与城乡资源失衡的多重压力下，大量青年的日常困扰长期处于"非危机却无人承接"的灰色地带——既够不上精神科门诊，又走不进心理咨询室。
+      </p>
+      <p class="about-text-block">
+        此心相信，<strong>这一片广阔的中间地带，正是朋辈支持可以发挥作用的地方。</strong>当被理解和被看见的需求，无法只靠少数专业咨询师承担，朋辈联结就成为一种新的回应方式：让经历过相似困境的同代人，以平等的姿态彼此承接。
+      </p>
+    </div>
+  </div>
+
+  <!-- Three pillars -->
+  <div class="pillars">
+    <div class="pillar reveal">
+      <div class="pillar-num">01</div>
+      <div class="pillar-tag">Peer Support</div>
+      <h3 class="pillar-title">朋辈支持<span class="key">·</span>承接</h3>
+      <p class="pillar-desc">
+        由经过系统培训与持续督导的朋辈心理咨询师，提供低负担、低污名的情绪倾诉入口，承接大量未进入医疗体系的日常心理需求。
+      </p>
+    </div>
+    <div class="pillar reveal">
+      <div class="pillar-num">02</div>
+      <div class="pillar-tag">Supervision</div>
+      <h3 class="pillar-title">专业督导<span class="key">·</span>保障</h3>
+      <p class="pillar-desc">
+        由具备临床与咨询背景的专业人员提供持续督导、技能校准与风险评估，建立明确的边界判断与转介机制，对高风险个案及时识别与转介。
+      </p>
+    </div>
+    <div class="pillar reveal">
+      <div class="pillar-num">03</div>
+      <div class="pillar-tag">Education</div>
+      <h3 class="pillar-title">心理教育<span class="key">·</span>共创</h3>
+      <p class="pillar-desc">
+        持续输出面向青年的心理教育内容与工作坊，联合学校、公益组织与社区共建支持性环境，让心理关怀成为可被传递的日常能力。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= TIMELINE ============= -->
+<section class="timeline-section">
+  <div class="timeline-inner">
+    <div class="reveal">
+      <div class="section-tag">Our Journey · 此心走过的路</div>
+      <h2 class="section-title">每一步都很慢，<br>但每一步都算数。</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-content">
+          <p><strong>此心组成初创团队。</strong>一群相信"心理支持不应是少数人特权"的青年聚集起来，开启此心的第一段旅程。</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2022</div>
+        <div class="timeline-content">
+          <p><strong>启动首期 Peer Guiding 朋辈心理服务培训。</strong></p>
+          <p>正式推出朋辈心理服务，接待第一批来访者。</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-content">
+          <p><strong>走进二三线城市校园，</strong>开展心理生态评估与定制化心理服务。</p>
+          <p><strong>入选哈佛健康孵化器（Harvard Health Accelerator）</strong>年度十大社会影响力组织。</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <p>与公益组织共办青年心理讲座与工作坊，<strong>面向教育从业者开展心理培训。</strong></p>
+        </div>
+      </div>
+      <div class="timeline-item current reveal">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-content">
+          <p>此心仍在路上 —</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= SERVICES ============= -->
+<section id="services">
+  <div class="reveal">
+    <div class="section-tag">Our Services · 此心的服务</div>
+    <h2 class="section-title">从一对一深度陪伴，<br>到群体心理教育的完整光谱。</h2>
+    <p class="section-intro">
+      我们提供四类相互衔接的支持，覆盖从一对一深度陪伴到群体心理教育的完整光谱。每一项服务都建立在统一的培养体系与督导机制之上，既能满足合作机构对质量与边界的要求，也能让每一位青年在最需要的时刻被稳妥接住。
+    </p>
+  </div>
+
+  <div class="services-grid">
+
+    <!-- Featured: Peer Guiding -->
+    <div class="service-card featured reveal">
+      <div class="service-visual">
+        <div class="service-visual-shape"></div>
+        <div class="service-visual-shape-2"></div>
+        <div class="service-number">01</div>
+      </div>
+      <div class="service-content">
+        <div class="service-tag">Core Service · 核心服务</div>
+        <h3 class="service-title">朋辈心理咨询</h3>
+        <div class="service-en">Peer Guiding — 一对一成长陪伴</div>
+        <p class="service-desc">
+          此心的核心服务，融合传统朋辈咨询（Peer Counseling）与教练（Coaching）双技术体系。Peer Guiding 不是诊断、不是治疗，而是一段由朋辈陪伴的、面向青年成长议题的长期支持关系——支持来访者在学业、亲密关系、社会角色等议题中探索觉察与行动。Peer Guide 的角色不是"传授答案"，而是与来访者并肩，共同创造一个新的体验空间，让每个人重新看见自己内心原本就拥有的资源与创造力。
+        </p>
+        <div class="service-meta">
+          <div class="meta-row">
+            <span class="meta-label">怎么运作</span>
+            <span>40+小时系统培训 · 情境化能力评估 · 每两周一次专家督导 · 五阶段服务闭环</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">这意味着</span>
+            <span>当你在学业压力、人际困境、自我认同探索中感到困扰，但又觉得"事情还没严重到需要去看心理医生"——你不必再独自硬撑。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tree Hole -->
+    <div class="service-card reveal">
+      <div class="service-visual" style="background:linear-gradient(135deg, var(--gold-soft) 0%, var(--orange-soft) 100%);">
+        <div class="service-visual-shape" style="background:var(--gold);right:-20%;"></div>
+        <div class="service-number">02</div>
+      </div>
+      <div class="service-content">
+        <div class="service-tag">Anonymous Support</div>
+        <h3 class="service-title">此心树洞</h3>
+        <div class="service-en">CaringMinds Letters — 匿名文字支持</div>
+        <p class="service-desc">
+          为更倾向文字表达、不希望即时对话的来访者提供的匿名情绪出口。来访者匿名投递信件，3–5个工作日内收到由朋辈心理咨询师在督导指导下完成的共情式回信。
+        </p>
+        <div class="service-meta">
+          <div class="meta-row">
+            <span class="meta-label">这意味着</span>
+            <span>你不必准备一段完整的话，不必预约时间，也不必让任何人知道是你——这是许多人迈出第一步的温柔入口。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workshops -->
+    <div class="service-card reveal">
+      <div class="service-visual" style="background:linear-gradient(135deg, var(--orange-soft) 0%, #FFE5DD 100%);">
+        <div class="service-visual-shape" style="background:var(--orange-deep);"></div>
+        <div class="service-number">03</div>
+      </div>
+      <div class="service-content">
+        <div class="service-tag">Group Empowerment</div>
+        <h3 class="service-title">成长工作坊与专家讲座</h3>
+        <div class="service-en">Workshops & Talks — 群体赋能</div>
+        <p class="service-desc">
+          围绕青年常见心理议题——情绪管理、压力调适、人际沟通、宿舍关系、恋爱心理、职业适应、心理急救等——开展的体验式互动工作坊与专题讲座。内容根据合作方需求灵活定制。
+        </p>
+        <div class="service-meta">
+          <div class="meta-row">
+            <span class="meta-label">这意味着</span>
+            <span>把那些"原本不知道怎么开口"的困惑，变成可以一起讨论、一起练习的共同经验。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="service-card reveal" style="grid-column: 1 / -1;">
+      <div class="service-content" style="padding: 48px;">
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;">
+          <div>
+            <div class="service-tag">Self-Paced Learning</div>
+            <h3 class="service-title" style="margin-bottom:4px;">青年心理教育课程</h3>
+            <div class="service-en" style="margin-bottom:0;">Mental Health Curriculum</div>
+          </div>
+          <div>
+            <p class="service-desc" style="margin-bottom:16px;">
+              面向青年开发的系统化心理教育课程，覆盖情绪管理、压力与韧性、自我探索、生活技能等核心主题。以结构化内容与可重复学习的形式呈现，支持青年自主学习，也可用于校园心理教育、朋辈心理咨询师培训及社区心理普及。
+            </p>
+            <p style="font-size:14px;color:var(--ink-faint);font-style:italic;font-family:'Noto Serif SC',serif;">
+              心理健康不只是出问题时才需要的"急救包"，它也是一套可以慢慢学习、慢慢内化的能力。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PG Principles -->
+  <div class="pg-principles reveal">
+    <div class="pg-principles-header">
+      <div class="pg-principles-tag">The Five Commitments</div>
+      <h3 class="pg-principles-title">朋辈心理咨询师的五项准则</h3>
+      <div class="pg-principles-sub">In every conversation, we hold these.</div>
+    </div>
+    <div class="principles-grid">
+      <div class="principle">
+        <div class="principle-num">i.</div>
+        <h4 class="principle-title">绝对保密</h4>
+        <p class="principle-desc">未经你允许，对话内容绝无第三人知晓。</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">ii.</div>
+        <h4 class="principle-title">全然接纳</h4>
+        <p class="principle-desc">不对情绪做是非判断，理解并尊重你当下的感受。</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">iii.</div>
+        <h4 class="principle-title">深度共情</h4>
+        <p class="principle-desc">关注情绪背后的原因，陪你跳出固有视角看见新的可能性。</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">iv.</div>
+        <h4 class="principle-title">开放提问</h4>
+        <p class="principle-desc">与你一起观察自己与他人、与世界的相处模式。</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">v.</div>
+        <h4 class="principle-title">唤醒内在</h4>
+        <p class="principle-desc">聆听你的内心需求，陪你挖掘本就拥有的资源与力量。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= INITIATIVES ============= -->
+<section id="initiatives" class="initiatives-section">
+  <div class="initiatives-inner">
+    <div class="reveal">
+      <div class="section-tag">Beyond Services · 实践与研究</div>
+      <h2 class="section-title">服务之外，<br>我们关心方法、体系与议题。</h2>
+      <p class="section-intro">
+        服务之外，此心也是一支关心方法、关心体系、关心议题的团队。我们相信，一个可持续的青年心理支持体系，不仅需要被实践，也需要被研究、被传播、被共创。
+      </p>
+    </div>
+
+    <div class="initiatives-grid">
+      <div class="initiative reveal">
+        <div class="initiative-num">i. Capacity Building</div>
+        <h3 class="initiative-title">朋辈心理咨询师培养体系</h3>
+        <p class="initiative-desc">
+          此心已建立一套覆盖招募初筛、系统性培训、考核准入、内测匹配、正式上岗与持续督导的五阶段培养体系。每一位咨询师需完成不少于40小时的系统培训、通过情境化能力评估方可上岗，并在岗期间接受每两周一次的专家督导。这套培养机制不仅服务于此心自身，也作为一种可复制的方法论，与高校、公益组织共享。
+        </p>
+      </div>
+      <div class="initiative reveal">
+        <div class="initiative-num">ii. Campus Ecosystem</div>
+        <h3 class="initiative-title">校园朋辈心理生态评估与定制化方案</h3>
+        <p class="initiative-desc">
+          此心走进二三线城市校园，开展校园心理生态评估与定制化心理服务。通过结构化的访谈、问卷与社群观察，我们帮助院校理解学生群体的真实心理状态、识别支持体系的薄弱环节，并基于评估结果定制可落地的解决方案——从前端日常陪伴到一线工作者赋能培训。
+        </p>
+      </div>
+      <div class="initiative reveal">
+        <div class="initiative-num">iii. Public Education</div>
+        <h3 class="initiative-title">心理健康公共教育与去污名化倡议</h3>
+        <p class="initiative-desc">
+          通过微信公众号、专题讲座、跨界联名活动等形式，此心持续推动青年心理健康议题的公共讨论。我们尝试用更日常、更人本的语言去谈论那些原本被沉默的话题——焦虑、迷茫、孤独、羞耻——让"寻求帮助"从带有压力的选择，转变为被理解、被支持的日常行动。
+        </p>
+      </div>
+      <div class="initiative reveal">
+        <div class="initiative-num">iv. Research</div>
+        <h3 class="initiative-title">心理调研与服务效果评估</h3>
+        <p class="initiative-desc">
+          此心以朋辈支持服务的真实数据为基础，开展持续的服务质量评估与议题研究，推动课程迭代、督导优化与政策倡导。我们关注朋辈支持在不同青年群体中的适用性差异、关注校园心理生态的结构性问题、也关注朋辈咨询师自身在长期支持工作中的成长与韧性。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= TEAM ============= -->
+<section id="team">
+  <div class="reveal">
+    <div class="section-tag">Our Team · 此心团队</div>
+    <h2 class="section-title">以朋辈视角思考，<br>以专业能力行动。</h2>
+  </div>
+
+  <div class="team-grid">
+    <div class="reveal">
+      <div class="team-quote">
+        心理支持<br>不应是少数人的<span class="key">特权</span>，<br>而应回归为<br>人人可及的<span class="key">日常关怀</span>。
+      </div>
+      <p class="team-text">
+        此心的成员来自海内外高校的青年共同组成。我们既是受过专业训练的研究者、教育者与实务工作者，也是仍在自己人生路上探索的同代青年——我们以朋辈视角思考，以跨文化的专业能力行动，共同致力于以创新方式改善中国青年的心理健康与成长体验。
+      </p>
+    </div>
+
+    <div class="disciplines-block reveal">
+      <div class="disciplines-header">学科覆盖 · Disciplines</div>
+      <div class="discipline-tags">
+        <span class="discipline-tag">心理学</span>
+        <span class="discipline-tag">公共卫生</span>
+        <span class="discipline-tag">临床医学</span>
+        <span class="discipline-tag gold">教育学</span>
+        <span class="discipline-tag gold">社会学</span>
+        <span class="discipline-tag gold">人类学</span>
+      </div>
+
+      <div class="universities-header">高校背景 · Universities</div>
+      <div class="universities">
+        哈佛大学<span class="dot">·</span>牛津大学<span class="dot">·</span>哥伦比亚大学<br>
+        UCL<span class="dot">·</span>清华大学<span class="dot">·</span>北京大学<br>
+        浙江大学<span class="dot">·</span>上海交通大学
+      </div>
+    </div>
+  </div>
+
+  <!-- Supervision -->
+  <div class="supervision-block reveal">
+    <div class="supervision-label">
+      Our Supervision Backbone<br>
+      <span style="font-family:'Noto Serif SC',serif;font-style:normal;font-size:18px;color:var(--ink);">专业督导支持</span>
+    </div>
+    <p class="supervision-text">
+      此心的服务质量由具备临床与咨询背景的专业督导团队持续保障。督导团成员来自高校心理学系、青少年心理服务一线机构与持证心理咨询体系，通过<strong style="color:var(--ink);">每两周一次的固定督导、案例复盘与边界校准</strong>，确保每一位朋辈心理咨询师在专业能力与伦理边界上都得到持续支持。
+    </p>
+  </div>
+</section>
+
+<!-- ============= JOIN ============= -->
+<section id="join" class="join-section">
+  <div class="join-inner">
+    <div class="reveal">
+      <div class="section-tag">Join Us · 加入我们</div>
+      <h2 class="section-title">此心一直在寻找<br>愿意同行的人。</h2>
+      <p class="join-intro">
+        无论你是想要学习朋辈支持技能、希望以专业能力回馈青年群体，还是有其他形式的资源愿意贡献，此心都欢迎你。
+      </p>
+    </div>
+
+    <div class="join-grid">
+      <!-- Featured: Peer Guide -->
+      <div class="join-card featured reveal">
+        <div>
+          <div class="join-card-tag">Become a Peer Guide</div>
+          <h3 class="join-card-title">成为朋辈心理咨询师</h3>
+          <p class="join-card-desc">
+            对青年心理健康议题有热情、愿意以朋辈视角陪伴同代人、能够投入稳定时间参与培训与督导的伙伴。无需心理学专业背景，但需通过书面申请与面试评估。
+          </p>
+        </div>
+        <div>
+          <div style="margin-bottom:24px;">
+            <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.2em;color:var(--gold);margin-bottom:12px;text-transform:uppercase;">YOU WILL RECEIVE</div>
+            <ul class="join-perks">
+              <li>40+小时系统化朋辈心理咨询培训</li>
+              <li>来自专业督导团队的持续指导与案例反馈</li>
+              <li>与海内外青年伙伴共同实践、共同成长的社群</li>
+              <li>面向真实青年来访者的服务实践机会</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.2em;color:var(--gold);margin-bottom:12px;text-transform:uppercase;">APPLICATION FLOW</div>
+            <div class="flow-steps">
+              <span class="flow-step">书面申请</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">面试评估</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">系统培训</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">考核准入</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">正式上岗</span>
+            </div>
+          </div>
+          <a href="#contact" class="join-cta">了解最新一期招募 →</a>
+        </div>
+      </div>
+
+      <!-- Advisor -->
+      <div class="join-card reveal">
+        <div class="join-card-tag">Expert Advisor</div>
+        <h3 class="join-card-title">加入专家顾问团</h3>
+        <p class="join-card-desc">
+          此心欢迎心理学、临床心理、教育、社会工作、青少年发展等领域的专业同行加入此心专家顾问团，共同支持朋辈心理咨询师的督导、培训与服务质量提升。
+        </p>
+        <a href="#contact" class="join-cta">联系我们 →</a>
+      </div>
+
+      <!-- Volunteer -->
+      <div class="join-card reveal">
+        <div class="join-card-tag">Volunteer & Co-creator</div>
+        <h3 class="join-card-title">志愿者与共创伙伴</h3>
+        <p class="join-card-desc">
+          一个青年心理支持体系的运转，不只依靠咨询师和督导。我们也需要内容创作、产品设计、研究分析、活动策划、传播运营等不同专长的伙伴。
+        </p>
+        <a href="#contact" class="join-cta">联系我们 →</a>
+      </div>
+
+      <!-- Institutional -->
+      <div class="join-card reveal" style="grid-column: 1 / -1;">
+        <div class="join-card-tag">Institutional Partnership</div>
+        <h3 class="join-card-title">机构合作</h3>
+        <p class="join-card-desc">
+          如果你来自高校、教育机构、公益组织、企业HR或基金会，希望与此心共同推动青年心理支持工作落地，欢迎了解我们的合作方案。
+        </p>
+        <a href="#contact" class="join-cta">了解机构合作 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CONTACT ============= -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-tag" style="justify-content:center;">Contact · 联系我们</div>
+      <p class="contact-quote">
+        期待更多<span class="key">专业同行</span>携手，<br>
+        让可信赖的心理支持<br>
+        成为<span class="key">每位青年</span>的公共资源。
+      </p>
+    </div>
+
+    <div class="contact-paths">
+      <div class="contact-path reveal">
+        <div class="contact-icon">🤝</div>
+        <h3 class="contact-path-title">我想了解合作</h3>
+        <p class="contact-path-desc">
+          如果你来自高校、公益组织、企业、研究机构或捐助方
+        </p>
+        <div class="contact-info">caringminds22@gmail.com</div>
+      </div>
+      <div class="contact-path reveal">
+        <div class="contact-icon">🌱</div>
+        <h3 class="contact-path-title">我想寻求支持</h3>
+        <p class="contact-path-desc">
+          如果你是想了解此心服务的青年，关注公众号即可进入小程序
+        </p>
+        <div class="contact-info">微信公众号：此心 CaringMinds</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= FOOTER ============= -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <div class="logo-mark"></div>
+        <div class="logo-text">
+          <span class="logo-zh">此心</span>
+          <span class="logo-en">CARINGMINDS</span>
+        </div>
+      </div>
+      <p class="footer-tagline">
+        让心理支持，<br>成为青年触手可及的公共资源。
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="#about">关于此心</a></li>
+        <li><a href="#team">此心团队</a></li>
+        <li><a href="#initiatives">实践与研究</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">朋辈心理咨询</a></li>
+        <li><a href="#services">此心树洞</a></li>
+        <li><a href="#services">成长工作坊</a></li>
+        <li><a href="#services">心理教育课程</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#join">加入我们</a></li>
+        <li><a href="#contact">机构合作</a></li>
+        <li><a href="#contact">联系邮箱</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 此心 CaringMinds. All rights reserved.</div>
+    <div>Beijing-registered social enterprise · 北京登记注册社会企业</div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
+
+</body>
+</html>
