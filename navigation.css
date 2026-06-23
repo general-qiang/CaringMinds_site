@@ -1,0 +1,13 @@
+.nav-links a.active {
+    color: var(--orange);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: var(--orange);
+}
